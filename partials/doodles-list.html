@@ -1,0 +1,10 @@
+<h3>List all doodles</h3>
+
+<ul>
+  <!-- Using player when I have set the controllerAs in the app.js and routeProvider -->
+  <li data-ng-repeat="_doodle in doodles.doodlesList">
+    {{ _doodle.user.username }} <a data-ng-href='doodle/{{_doodle.id}}'>More info</a>
+  </li>
+ 
+</ul> 
+
