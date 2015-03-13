@@ -33,20 +33,10 @@
 
 
          <!-- Includes a shared view (menu) -->
-<!--        <div data-ng-include src="'./partials/shared/menu.html'"> Should be replaced?</div>
+         <div data-ng-include src="'./partials/shared/menu.html'"> Should be replaced?</div>
        <hr />
- -->
-
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" data-ng-href="./">Home</a>
-            <a class="navbar-brand" data-ng-href="doodles">All doodles</a>
-          </div>
-        </div>
-      </nav>
-
-        <div data-ng-view>This should be replaced</div>       
+ 
+       <div data-ng-view>This should be replaced</div>       
 <!--
        <ul>
          <li>Name: {{ players.currentPlayer.name }}</li>
@@ -66,6 +56,15 @@
 
 -->
 
+      <div ng-controller="DoodlesListController as doodlesCtrl">
+        <ul>
+          <li data-ng-repeat="_doodle in doodlesCtrl.getAllDoodles()">
+            <span>{{ _doodle.description }}</span>
+          </li>
+        </ul>
+       <hr />
+     </div>
+
      
 
 
@@ -78,11 +77,25 @@
        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.js"></script>
      
-       <script src="app.js"></script>
+
+        <script src="app.js"></script>
+
+
        <!-- Add the controller -->
        <!-- <script src="./controllers/DoodlesController.js"></script> -->
        <!-- <script src="./controllers/LoginController.js"></script> -->
-       <script src="./controllers/MapController.js"></script> 
+
+       <script src="./services/DoodlesService.js"></script>
+        <script src="./services/ResourceService.js"></script>
+
+        <script src="./controllers/MapController.js"></script>
+        <script src="./controllers/DoodlesListController.js"></script>
+
+
+        
+        
+
+       <script src="libs/angular-localstorage.js"></script>
 
        <script src="./ng-map.min.js"></script>
         <script src="http://maps.google.com/maps/api/js"></script>

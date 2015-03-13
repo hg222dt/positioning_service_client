@@ -1,3 +1,4 @@
+(function() {
 // create the module
 angular
   .module("positioning_service_client_app", ['ngRoute', 'LocalStorageModule'])
@@ -11,11 +12,6 @@ angular
           templateUrl: 'partials/doodles-list.html',
           controller: 'DoodlesListController',
           controllerAs: 'doodles' // players could be seen as an instance of the controller, use it in the view!
-        }).
-        when('/doodles/:id', {
-          templateUrl: 'partials/doodle-detail.html',
-          controller: 'DoodleDetailController',
-          controllerAs: 'doodle'
         }).
         otherwise({
           redirectTo: '/'
@@ -39,3 +35,4 @@ angular
       'doodlesKey' : 'd', // just some keys for sessionStorage-keys
     });
 
+})();
