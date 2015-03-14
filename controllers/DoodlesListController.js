@@ -10,15 +10,16 @@ function DoodlesListController(DoodlesService) {
   var vm = this;
   var doodlesPromise = DoodlesService.getAll();
 
-  doodlesPromise
-      .then(function(data){
-        vm.doodlesList = data;
-      })
-      .catch(function(error) {
-        console.log("ERROR");
-      });
+    doodlesPromise
+        .then(function(data){
+          vm.doodlesList = data;
+        })
+        .catch(function(error) {
+          console.log("ERROR");
+        });
 
-      return vm.doodlesList;  
+      vm.doodlesList;  
+
 }
 
 })();

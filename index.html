@@ -29,8 +29,8 @@
 
     <div ng-controller="DoodlesListController as doodlesCtrl">
       <ul>
-        <li ng-repeat="_doodle in doodlesCtrl.getAllDoodles()">
-          <span>{{ _doodle.description }}</span>
+        <li ng-repeat="_doodle in doodlesCtrl.doodlesList">
+          <span>{{ _doodle.doodle_text }}</span>
         </li>
       </ul>
      <hr />
