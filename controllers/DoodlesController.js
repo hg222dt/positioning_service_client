@@ -3,10 +3,6 @@ angular
   .module('positioning_service_client_app')
   .controller("DoodlesController", DoodlesController);
 
-//PlayersController.$inject = ['$scope']; // inject the scope (no need if using controllerAs)
-
-
-
 function DoodlesController() {
   var vm = this;
   

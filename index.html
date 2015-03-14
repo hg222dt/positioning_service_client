@@ -8,21 +8,22 @@
    </head>
    <body>
      
-    <h1 class="jumbotrone">Doodles world</h1>
-    <hr />
+    <div class='container'>
+      <h1 class="jumbotrone">Doodles world</h1>
+      <hr />
 
 
-    <div ng-controller="MapController as mapctrl">
-      <map center="56.66830, 16.35315" zoom="8" class="map" on-click="mapctrl.checkPosition()"></map>
+      <div ng-controller="MapController as mapctrl">
+        <map center="56.66830, 16.35315" zoom="8" class="map" on-click="mapctrl.checkPosition()"></map>
+      </div>
+
+      <!-- Includes a shared view (menu) -->
+      <div ng-include src="'./partials/shared/menu.html'"> Should be replaced?</div>
+      <hr />
+   
+      <div ng-view>This should be replaced</div>       
+
     </div>
-
-    <!-- Includes a shared view (menu) -->
-    <div ng-include src="'./partials/shared/menu.html'"> Should be replaced?</div>
-    <hr />
- 
-    <div ng-view>This should be replaced</div>       
-
-       
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
