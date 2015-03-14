@@ -16,25 +16,11 @@
       <map center="56.66830, 16.35315" zoom="8" class="map" on-click="mapctrl.checkPosition()"></map>
     </div>
 
-
-    <!-- <a class="navbar-brand" data-ng-href="doodles">All Doodles</a> -->
-
-
     <!-- Includes a shared view (menu) -->
     <div ng-include src="'./partials/shared/menu.html'"> Should be replaced?</div>
     <hr />
  
     <div ng-view>This should be replaced</div>       
-
-
-    <div ng-controller="DoodlesListController as doodlesCtrl">
-      <ul>
-        <li ng-repeat="_doodle in doodlesCtrl.doodlesList">
-          <span>{{ _doodle.doodle_text }}</span>
-        </li>
-      </ul>
-     <hr />
-    </div>
 
        
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> 

@@ -52,7 +52,7 @@ angular
         when('/doodles', {
           templateUrl: 'partials/doodles-list.html',
           controller: 'DoodlesListController',
-          controllerAs: 'doodles'
+          controllerAs: 'doodlesCtrl'
         }).
         otherwise({
           redirectTo: '/'
