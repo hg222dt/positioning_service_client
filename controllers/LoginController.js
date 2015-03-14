@@ -1,6 +1,6 @@
 // angular is a global namespace declared by angularJS
 angular
-  .module("positioning_service_client_app") // must match ng-app in HTML (this is the module - probobly same for whole application)
+  .module('positioning_service_client_app') // must match ng-app in HTML (this is the module - probobly same for whole application)
   .controller("LoginController", LoginController); // register our controller with name and "constructor" function
 
 //PlayersController.$inject = ['$scope']; // inject the scope (no need if using controllerAs)

@@ -1,5 +1,5 @@
+/*
 (function() {
-// create the module
 angular
   .module("positioning_service_client_app", ['ngRoute', 'LocalStorageModule'])
   .config(['$routeProvider', '$locationProvider',
@@ -11,28 +11,50 @@ angular
         when('/doodles', {
           templateUrl: 'partials/doodles-list.html',
           controller: 'DoodlesListController',
-          controllerAs: 'doodles' // players could be seen as an instance of the controller, use it in the view!
+          controllerAs: 'doodles'
         }).
         otherwise({
           redirectTo: '/'
         });
       
-      $locationProvider.html5Mode(true); // This removes the hash-bang and use the Session history management >= IE10
+      $locationProvider.html5Mode(true);
     }])
     .config(function (localStorageServiceProvider) {
-      // The module give me some stuff to configure
       localStorageServiceProvider
           .setPrefix('positioning_service_client_app')
           .setStorageType('sessionStorage')
           .setNotify(true, true)
     })
-    .constant('API', { // here I also can declare constants
-      'key': "f4d83ad593d6058eecb44d36cf1af5c9", // bad practice!? Key on client....
-      'url': "http://localhost:3000/api/v1/", // base url
-      'format': 'application/json' // Default representation we want
+    .constant('API', {
+      'key': "f4d83ad593d6058eecb44d36cf1af5c9",
+      'url': "http://localhost:3000/api/v1/",
+      'format': 'application/json'
     })
     .constant('LocalStorageConstants', {
-      'doodlesKey' : 'd', // just some keys for sessionStorage-keys
+      'doodlesKey' : 'd'
     });
 
+})();
+
+
+*/
+
+
+(function() {
+angular
+  .module('positioning_service_client_app', ['LocalStorageModule'])
+    .config(function (localStorageServiceProvider) {
+      localStorageServiceProvider
+          .setPrefix('positioning_service_client_app')
+          .setStorageType('sessionStorage')
+          .setNotify(true, true)
+    })
+    .constant('LocalStorageConstants', {
+      'doodlesKey' : 'd'
+    })
+    .constant('API', {
+        'key': "b73c7bd31eda0f56af490a146fd589d4",
+        'url': "http://localhost:3000/api/v1/",
+        'format': 'application/json'
+      });
 })();
