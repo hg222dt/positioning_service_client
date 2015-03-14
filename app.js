@@ -42,7 +42,24 @@ angular
 
 (function() {
 angular
-  .module('positioning_service_client_app', ['LocalStorageModule', 'ngMap'])
+  .module('positioning_service_client_app', ['ngRoute', 'LocalStorageModule', 'ngMap'])
+  .config(['$routeProvider', '$locationProvider',
+    function($routeProvider, $locationProvider) {
+      $routeProvider.
+        when('/', {
+          templateUrl: 'partials/index.html'
+        }).
+        when('/doodles', {
+          templateUrl: 'partials/doodles-list.html',
+          controller: 'DoodlesListController',
+          controllerAs: 'doodles'
+        }).
+        otherwise({
+          redirectTo: '/'
+        });
+      
+      // $locationProvider.html5Mode(true);
+    }])
     .config(function (localStorageServiceProvider) {
       localStorageServiceProvider
           .setPrefix('positioning_service_client_app')
