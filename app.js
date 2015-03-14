@@ -42,7 +42,7 @@ angular
 
 (function() {
 angular
-  .module('positioning_service_client_app', ['LocalStorageModule'])
+  .module('positioning_service_client_app', ['LocalStorageModule', 'ngMap'])
     .config(function (localStorageServiceProvider) {
       localStorageServiceProvider
           .setPrefix('positioning_service_client_app')

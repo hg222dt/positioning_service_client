@@ -1,6 +1,13 @@
+
+(function() {
+
 angular
-  .module('positioning_service_client_app', ['ngMap'])
-  .controller('MapController', function($scope){ 
+  .module('positioning_service_client_app')
+  .controller('MapController', MapController); 
+
+  MapController.$inject = ['$scope'];
+
+  function MapController($scope){ 
       var vm = this;
      
       var map;
@@ -22,4 +29,6 @@ angular
       }
 
       return vm;
-  });
+  }
+
+})();
