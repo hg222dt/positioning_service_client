@@ -11,10 +11,12 @@ function ResourceService($http, API) {
  return function (collectionName) {
   
     var Resource = function(data) {
-     angular.extend(this, data);
+
+      angular.extend(this, data);
     }
       
     Resource.getCollection = function() {
+
         var req = {
             method: 'GET',
             url: API.url +collectionName + ".json",
@@ -30,13 +32,18 @@ function ResourceService($http, API) {
 
         return $http(req).then(function(response) {
           var result = [];
+
           angular.forEach(response.data, function(value, key) {
             result[key] = new Resource(value); 
           });
+
           return result;
         });
     };
-  }
+
+    return Resource;
+ }
+
 }
 
 })();

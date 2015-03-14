@@ -10,6 +10,7 @@ angular
   function DoodlesService(Resource, LocalStorage, LS, $q) {
         
     var Doodle = Resource('doodles');
+
     return {
       getAll:function() {
 
