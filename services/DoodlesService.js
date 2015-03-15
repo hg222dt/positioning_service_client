@@ -4,7 +4,6 @@ angular
   .module('positioning_service_client_app')
   .factory('DoodlesService', DoodlesService);
 
-
   DoodlesService.$inject = ['ResourceService', 'localStorageService', 'LocalStorageConstants', '$q'];
 
   function DoodlesService(Resource, LocalStorage, LS, $q) {

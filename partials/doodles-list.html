@@ -1,15 +1,13 @@
 <h3>List all doodles</h3>
 
+<span>Search by anything</span>
+<input type="search" ng-model="search.$">
+
 <ul>
-  <!-- Using player when I have set the controllerAs in the app.js and routeProvider -->
-<!--
-  <li data-ng-repeat="_doodle in doodles.doodlesList">
-    {{ _doodle.user.username }} <a data-ng-href='doodle/{{_doodle.id}}'>More info</a>
-  </li>
--->
-  	<li ng-repeat="_doodle in doodlesCtrl.doodlesList">
+  	<li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search:strict" >
 	  <span>{{ _doodle.doodle_text }}</span>
 	  <span>{{_doodle.tag.name}}</span>
+	  <span>{{_doodle.end_user.username}}</span>
 	</li>
 </ul> 
 

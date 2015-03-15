@@ -1,21 +1,20 @@
 (function() {
 
-angular
+  angular
     .module('positioning_service_client_app')
     .factory('ResourceService', ResourceService);
 
-ResourceService.$inject = ['$http', 'API'];
+  ResourceService.$inject = ['$http', 'API'];
 
-function ResourceService($http, API) {
+  function ResourceService($http, API) {
 
- return function (collectionName) {
-  
-    var Resource = function(data) {
-
-      angular.extend(this, data);
-    }
-      
-    Resource.getCollection = function() {
+    return function (collectionName) {
+    
+      var Resource = function(data) {
+        angular.extend(this, data);
+      }
+        
+      Resource.getCollection = function() {
 
         var req = {
             method: 'GET',
@@ -39,11 +38,10 @@ function ResourceService($http, API) {
 
           return result;
         });
-    };
+      };
 
-    return Resource;
- }
-
-}
+      return Resource;
+    }
+  }
 
 })();
