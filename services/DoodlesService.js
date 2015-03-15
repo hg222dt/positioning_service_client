@@ -4,16 +4,18 @@ angular
   .module('positioning_service_client_app')
   .factory('DoodlesService', DoodlesService);
 
-  DoodlesService.$inject = ['ResourceService', 'localStorageService', 'LocalStorageConstants', '$q'];
+  DoodlesService.$inject = ['ResourceService', '$q'];
 
-  function DoodlesService(Resource, LocalStorage, LS, $q) {
-        
+  function DoodlesService(Resource, $q) {
+
     var Doodle = Resource('doodles');
 
     return {
       getAll:function() {
 
-        var items = LocalStorage.get(LS.doodlesKey);
+        // var items = LocalStorage.get(LS.doodlesKey);
+
+        var items;
 
         var deferred = $q.defer();
 
@@ -21,7 +23,7 @@ angular
           
           Doodle.getCollection().then(function(data){
 
-            LocalStorage.set(LS.doodlesKey, data);
+            // LocalStorage.set(LS.doodlesKey, data);
 
             deferred.resolve(data);
           });
@@ -33,10 +35,47 @@ angular
 
         return deferred.promise;
       },
-      
+      getFilteredDoodles:function(query) {
+
+        var deferred = $q.defer();
+
+        if(query.searchBy === "tag") {
+
+          var Doodle = Resource('doodles_by_tag/' + query.term);
+
+          Doodle.getCollection().then(function(data){
+            deferred.resolve(data);
+          });
+          
+          // http://localhost:3000/api/v1/doodles_by_tag/cooltag.json?offset=1&limit=2
+
+        } else if(query.searchBy === "username") {
+          // http://localhost:3000/api/v1/user/<insert user_id>/doodles.json
+
+          var Doodle = Resource('users/username/' + query.term + '/doodles');
+
+          Doodle.getCollection().then(function(data){
+            deferred.resolve(data);
+          });
+
+        } else if(query.searchBy === "all") {
+          // http://localhost:3000/api/v1/doodles.json?q=malmö
+
+          //TODO IMPLEMENT IN RESOURCES
+
+          Doodle.getCollection().then(function(data){
+            deferred.resolve(data);
+          });
+
+        }
+
+        return deferred.promise;
+
+      },
       getDoodle:function(id) {
 
-        var items = LocalStorage.get(LS.doodlesKey);
+        // var items = LocalStorage.get(LS.doodlesKey);
+        var items;
         var item = false;
 
         if(items) {
@@ -63,8 +102,8 @@ angular
         }
         promise.success(function(data){
 
-          var localStorageKey = LS.doodlesKey +"." +data.id
-          LocalStorage.set(localStorageKey, data);
+          // var localStorageKey = LS.doodlesKey +"." +data.id
+          // LocalStorage.set(localStorageKey, data);
 
           deferred.resolve(data);
 

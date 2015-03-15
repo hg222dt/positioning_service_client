@@ -9,7 +9,7 @@
             templateUrl: 'partials/index.html'
           }).
           when('/doodles', {
-            templateUrl: 'partials/doodles-list.html',
+            templateUrl: 'partials/search-area.html',
             controller: 'DoodlesListController',
             controllerAs: 'doodlesCtrl'
           }).
@@ -33,5 +33,5 @@
         'url': "http://localhost:3000/api/v1/",
         'format': 'application/json'
     });
-    
+
 })();

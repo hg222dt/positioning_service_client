@@ -18,7 +18,7 @@
 
         var req = {
             method: 'GET',
-            url: API.url +collectionName + ".json",
+            url: API.url + collectionName + ".json",
             headers: {
                 'Accept': API.format,
                 'apikey': API.key
@@ -39,6 +39,34 @@
           return result;
         });
       };
+
+
+      Resource.getFilteredCollection = function() {
+
+        var req = {
+            method: 'GET',
+            url: API.url + collectionName + ".json",
+            headers: {
+                'Accept': API.format,
+                'apikey': API.key
+            },
+            params: {
+                'offset': '0',
+                'limit': '20'
+            }
+        };
+
+        return $http(req).then(function(response) {
+          var result = [];
+
+          angular.forEach(response.data, function(value, key) {
+            result[key] = new Resource(value); 
+          });
+          return result;
+        });
+
+      }
+
 
       return Resource;
     }

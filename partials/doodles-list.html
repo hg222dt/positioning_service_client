@@ -1,10 +1,10 @@
-<h3>List all doodles</h3>
+<h3>Listing all doodles</h3>
 
-<span>Search by anything</span>
-<input type="search" ng-model="search.$">
+<span>Filter your result. Write ANYTHING!</span>
+<input type="search" ng-model="search">
 
 <ul>
-  	<li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search:strict" >
+  	<li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search" >
 	  <span>{{ _doodle.doodle_text }}</span>
 	  <span>{{_doodle.tag.name}}</span>
 	  <span>{{_doodle.end_user.username}}</span>

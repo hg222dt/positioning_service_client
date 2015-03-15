@@ -4,21 +4,25 @@
     .module('positioning_service_client_app') 
     .controller("DoodlesListController", DoodlesListController); 
 
-  DoodlesListController.$inject = ['DoodlesService'];
+  DoodlesListController.$inject = ['DoodlesService', '$scope'];
 
-  function DoodlesListController(DoodlesService) {
+  function DoodlesListController(DoodlesService, $scope) {
+
+
 
     var vm = this;
-    var doodlesPromise = DoodlesService.getAll();
+    var allDoodlesPromise = DoodlesService.getAll();
 
-    doodlesPromise
+    allDoodlesPromise
       .then(function(data){
+        console.log(data);
         vm.doodlesList = data;
       })
       .catch(function(error) {
         console.log("ERROR");
       });
 
+/*
       vm.getDoodlesByTag = function() {
       
         var result = vm.doodlesList.filter(function(d) {
@@ -27,6 +31,30 @@
         
         vm.currentDoodles = result; 
       }
+*/
+
+
+ //     $scope.master = {};
+
+
+      $scope.send = function(query) {
+
+        var filterDoodlesPromise = DoodlesService.getFilteredDoodles(query);
+
+        $scope.master = angular.copy(query);
+
+        filterDoodlesPromise
+          .then(function(data){
+            console.log(data);
+            vm.doodlesList = data;
+          })
+          .catch(function(error) {
+            console.log("ERROR");
+          });
+
+      };
+
+      // $scope.master = {firstName: "John", lastName: "Doe"};
   }
 
 })();
