@@ -13,6 +13,16 @@
             controller: 'DoodlesListController',
             controllerAs: 'doodlesCtrl'
           }).
+          when('/login', {
+            templateUrl: 'partials/login-area.html',
+            controller: 'LoginController',
+            controllerAs: 'loginCtrl'
+          }).
+          when('/registration', {
+            templateUrl: 'partials/registration-area.html',
+            controller: 'RegistrationController',
+            controllerAs: 'registrationCtrl'
+          }).
           otherwise({
             redirectTo: '/'
           });
