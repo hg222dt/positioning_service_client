@@ -9,6 +9,7 @@
   function DoodlesListController(DoodlesService, $scope) {
 
 
+    
 
     var vm = this;
     var allDoodlesPromise = DoodlesService.getAll();
@@ -38,6 +39,8 @@
 
 
       $scope.send = function(query) {
+
+        console.log("HEPP");
 
         var filterDoodlesPromise = DoodlesService.getFilteredDoodles(query);
 

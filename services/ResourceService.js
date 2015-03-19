@@ -68,6 +68,31 @@
       }
 
 
+      Resource.POST = function(collectionName, data) {
+        var req = {
+            method: 'POST',
+            url: API.url + collectionName + ".json",
+            headers: {
+                'Accept': API.format,
+                'apikey': API.key
+            },
+            params: {
+            },
+            data : data
+        };
+
+        return $http(req).then(function(response) {
+          var result = [];
+
+          angular.forEach(response.data, function(value, key) {
+            result[key] = new Resource(value);
+          });
+
+          return response.data;
+        });
+
+      }
+
       return Resource;
     }
   }

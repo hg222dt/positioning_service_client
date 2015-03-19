@@ -3,22 +3,27 @@ angular
   .module('positioning_service_client_app')
   .controller("LoginController", LoginController);
 
-function LoginController() {
+LoginController.$inject = ['UserService', '$scope'];
+
+function LoginController(UserService, $scope) {
 
   var vm = this;
   
   vm.currentPlayer = "";
   
-  vm.loginUser = function() {
-      console.log("HEPP");
+  $scope.loginUser = function(userCredentials) {
+    console.log("HEPP");
 
+    //Try to log user in
+    var userPromise = UserService.loginUser(userCredentials);
 
-      // var result = usersList.filter(function(p) {
-      //    return p.id.toString() === vm.idvalue.toString();
-      // })[0];
+    userPromise
+      .then(function(data){
+        console.log(data);
 
-      // window.alert("hejhej. användaren heter " + result.name);
-      
-      // vm.currentPlayer = result; 
+      })
+      .catch(function(error) {
+        console.log("ERROR");
+      });
   }
 }
