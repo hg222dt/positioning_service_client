@@ -1,7 +1,7 @@
 (function() {
 
   angular
-    .module('positioning_service_client_app', ['ngRoute', 'LocalStorageModule', 'ngMap'])
+    .module('positioning_service_client_app', ['ngRoute', 'LocalStorageModule', 'ngMap', 'ngCookies'])
     .config(['$routeProvider', '$locationProvider',
       function($routeProvider, $locationProvider) {
         $routeProvider.
@@ -43,5 +43,4 @@
         'url': "http://localhost:3000/api/v1/",
         'format': 'application/json'
     });
-
 })();

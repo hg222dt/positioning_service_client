@@ -1,0 +1,42 @@
+
+
+
+<!-- <div ng-controller="SearchFormController"> -->
+<!-- 	<form novalidate>
+		<input type="email" ng-model="loginCred.email">
+		<input type="password" ng-model="loginCred.password">
+		<input type="submit" ng-click="send(loginCred)" value="Logga in!" /> <br>
+	</form>
+ -->
+
+<form novalidate>
+		<div class="container-fluid">
+		    <section class="container">
+				<div class="container-page">				
+					<div class="col-md-6">
+						
+						<h3>Logga in!</h3>
+						<p>För att kunna skapa ett eget konto behöver du logga in. Inte registrerad än? Skapa ett konto <a href='#/registration'>här.</a></p> 
+
+						<div class="form-group col-lg-12">
+							<label>Användarnamn</label>
+							<input type="" name="" class="form-control" id="" value="" ng-model="loginCred.username">
+						</div>
+
+
+						<div class="form-group col-lg-6">
+							<label>E-post</label>
+							<input type="" name="" class="form-control" id="" value="" ng-model="loginCred.email">
+						</div>
+
+						<div class="form-group col-lg-6">
+							<label>Lösenord</label>
+							<input type="password" name="" class="form-control" id="" value="" ng-model="loginCred.password">
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<button type="submit" class="btn btn-primary" ng-click="loginUser(loginCred)">Kör!</button>
+		</div>
+	</form>
