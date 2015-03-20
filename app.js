@@ -23,6 +23,11 @@
             controller: 'RegistrationController',
             controllerAs: 'registrationCtrl'
           }).
+          when('/create', {
+            templateUrl: 'partials/create-area.html',
+            controller: 'CreateController',
+            controllerAs: 'createCtrl'
+          }).
           otherwise({
             redirectTo: '/'
           });
@@ -42,5 +47,8 @@
         'key': "b73c7bd31eda0f56af490a146fd589d4",
         'url': "http://localhost:3000/api/v1/",
         'format': 'application/json'
+    })
+    .controller('MainCtrl', function($scope) {
+      console.log("HEPP");
     });
 })();
