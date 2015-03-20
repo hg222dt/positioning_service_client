@@ -20,8 +20,12 @@ function LoginController(UserService, $scope, $cookieStore, $location) {
     userPromise
       .then(function(data){
 
+        console.log(data);
+
         $cookieStore.put('auth_token', data['auth_token']);
         $cookieStore.put('userLoggedIn', true);
+
+        $cookieStore.put('loggedInUsername', data['end_user']['username']);
 
         $location.path( "/doodles" );
 

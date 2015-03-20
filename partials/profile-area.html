@@ -1,0 +1,10 @@
+<h3>Din profil</h3>
+
+
+<ul>
+  	<li ng-repeat="_doodle in profileCtrl.doodlesList" >
+	  <span>{{ _doodle.doodle_text }}</span>
+	  <span>{{_doodle.tag.name}}</span>
+	  <span>{{_doodle.end_user.username}}</span>
+	</li>
+</ul>

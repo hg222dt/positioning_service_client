@@ -28,6 +28,11 @@
             controller: 'CreateController',
             controllerAs: 'createCtrl'
           }).
+          when('/profile', {
+            templateUrl: 'partials/profile-area.html',
+            controller: 'ProfileController',
+            controllerAs: 'profileCtrl'
+          }).
           otherwise({
             redirectTo: '/'
           });

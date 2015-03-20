@@ -27,7 +27,7 @@ angular
 
         var jsonData = JSON.stringify(data);
     
-        promise = User.POST('api_auth', jsonData).then(function(data) {
+        promise = User.postUser('api_auth', jsonData).then(function(data) {
           response = data;
           deferred.resolve(data);
         });
@@ -49,7 +49,7 @@ angular
 
         var jsonData = JSON.stringify(data);
     
-        var promise = User.POST('user', jsonData).then(function(data) {
+        var promise = User.postUser('user', jsonData).then(function(data) {
           console.log(data);
         });
         return promise;

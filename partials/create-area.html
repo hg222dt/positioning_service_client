@@ -1,1 +1,23 @@
 <p>SKAPA DOODLE</p>
+
+<form novalidate>
+	<div class="container-fluid">
+	    <section class="container">
+			<div class="container-page">				
+				<div class="col-md-6">
+					
+					<div class="form-group col-lg-12">
+						<label>Skriv något fint här.</label>
+						<input type="" name="" class="form-control" id="" value="" ng-model="doodle.text">
+					</div>
+					<div class="form-group col-lg-12">
+						<label>Taggar</label>
+						<input type="" name="" class="form-control" id="" value="" ng-model="doodle.tag_name">
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<button type="submit" class="btn btn-primary" ng-click="sendDoodle(doodle)">Plantera doodle!</button>
+	</div>
+</form>

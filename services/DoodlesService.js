@@ -4,9 +4,9 @@ angular
   .module('positioning_service_client_app')
   .factory('DoodlesService', DoodlesService);
 
-  DoodlesService.$inject = ['ResourceService', '$q'];
+  DoodlesService.$inject = ['ResourceService', '$q', '$cookieStore'];
 
-  function DoodlesService(Resource, $q) {
+  function DoodlesService(Resource, $q, $cookieStore) {
 
     var Doodle = Resource('doodles');
 
@@ -114,19 +114,46 @@ angular
 
         return deferred.promise;
       },
-      savePlayer:function(data) {
+      getDoodlesForUser:function(user) {
+
+        var items;
+
+        var deferred = $q.defer();
+
+        if(!items) {
+          
+          Doodle.getCollectionFromUser('users/username/' + $cookieStore.get('loggedInUsername') + '/doodles').then(function(data){
+
+            deferred.resolve(data);
+          });
+        }
+        else {
+          console.log("Getting all the doodles from the cache");
+          deferred.resolve(items);
+        }
+
+        return deferred.promise;
+
+
+
+      },
+      saveDoodle:function(doodle) {
         
-        data = { "doodle":
-                  {
-                      "description": "hepp hepp"
-                  }
-              }
-        var promise = Doodle.save('doodles', data).then(function(data) {
+        var data = {};
+
+        data['doodle_text'] = doodle.text;
+        data['lat'] = doodle.lat;
+        data['long'] = doodle.long;
+        data['tag_name'] = doodle.tag_name;
+
+        var jsonData = JSON.stringify(data);
+    
+        var promise = Doodle.postDoodle('doodles', jsonData).then(function(data) {
           console.log(data);
         });
         return promise;
+        
       }
-    
     };
   }
 })();
