@@ -122,7 +122,8 @@ angular
 
         if(!items) {
           
-          Doodle.getCollectionFromUser('users/username/' + $cookieStore.get('loggedInUsername') + '/doodles').then(function(data){
+          // Doodle.getCollectionFromUser('users/username/' + $cookieStore.get('loggedInUsername') + '/doodles').then(function(data){
+          Doodle.getCollectionFromUser('user/' + $cookieStore.get('loggedInId') + '/doodles').then(function(data){
 
             deferred.resolve(data);
           });
@@ -133,9 +134,6 @@ angular
         }
 
         return deferred.promise;
-
-
-
       },
       saveDoodle:function(doodle) {
         

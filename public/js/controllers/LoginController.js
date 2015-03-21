@@ -26,6 +26,7 @@ function LoginController(UserService, $scope, $cookieStore, $location) {
         $cookieStore.put('userLoggedIn', true);
 
         $cookieStore.put('loggedInUsername', data['end_user']['username']);
+        $cookieStore.put('loggedInId', data['end_user']['id']);
 
         $location.path( "/doodles" );
 
