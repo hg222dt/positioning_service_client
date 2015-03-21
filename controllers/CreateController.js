@@ -13,12 +13,10 @@ function CreateController(DoodlesService, $scope, $rootScope) {
   vm.currentPlayer = "";
   
   $scope.sendDoodle = function(doodle) {
-    console.log("HEPP");
 
     doodle.lat = 1.1111;
     doodle.long = 2.2222;
 
-    //Try to log user in
     var doodlePromise = DoodlesService.saveDoodle(doodle);
 
     doodlePromise

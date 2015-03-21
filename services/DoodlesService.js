@@ -153,6 +153,17 @@ angular
         });
         return promise;
         
+      },
+      deleteDoodle:function(doodleId) {
+
+        var deferred = $q.defer();
+
+        var promise = Doodle.deleteDoodle('doodles/' + doodleId).then(function(data) {
+          console.log(data);
+          deferred.resolve(data);
+        });
+
+        return deferred.promise;
       }
     };
   }

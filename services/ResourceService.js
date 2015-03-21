@@ -152,6 +152,31 @@
 
       }
 
+      Resource.deleteDoodle = function(collectionName) {
+        var req = {
+            method: 'DELETE',
+            url: API.url + collectionName + ".json",
+            headers: {
+                'Accept': API.format,
+                'apikey': API.key,
+                'Authorization': "Bearer " + $cookieStore.get('auth_token')
+            },
+            params: {
+            }
+        };
+
+        return $http(req).then(function(response) {
+          var result = [];
+
+          angular.forEach(response.data, function(value, key) {
+            result[key] = new Resource(value);
+          });
+
+          return response.data;
+        });
+
+      }
+      
       return Resource;
     }
   }
