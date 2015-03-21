@@ -9,16 +9,19 @@
   function MainCtrl($scope, $cookieStore, $rootScope, $location) {
 
     $rootScope.isUserLoggedIn = function() {
-      return $cookieStore.get('userLoggedIn');
+      // return $cookieStore.get('userLoggedIn');
+      return $rootScope.userLoggedIn;
     }
 
     $rootScope.logout = function() {
 
-      $cookieStore.put('auth_token', "");
-      $cookieStore.put('userLoggedIn', false); 
+      $rootScope.auth_token = "";
+      $rootScope.userLoggedIn = false;
+
+      // $cookieStore.put('auth_token', "");
+      // $cookieStore.put('userLoggedIn', false); 
 
     }
-
   }
 
 })();

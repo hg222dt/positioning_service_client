@@ -4,9 +4,9 @@
     .module('positioning_service_client_app')
     .factory('ResourceService', ResourceService);
 
-  ResourceService.$inject = ['$http', 'API', '$cookieStore'];
+  ResourceService.$inject = ['$http', 'API', '$cookieStore', '$rootScope'];
 
-  function ResourceService($http, API, $cookieStore) {
+  function ResourceService($http, API, $cookieStore, $rootScope) {
 
     return function (collectionName) {
     
@@ -130,7 +130,7 @@
             headers: {
                 'Accept': API.format,
                 'apikey': API.key,
-                'Authorization': "Bearer " + $cookieStore.get('auth_token')
+                'Authorization': "Bearer " + $rootScope.auth_token
             },
             params: {
             },
@@ -138,7 +138,7 @@
         };
 
         console.log(API.key);
-        console.log($cookieStore.get('auth_token'));
+        console.log($rootScope.auth_token);
 
         return $http(req).then(function(response) {
           var result = [];
@@ -159,7 +159,7 @@
             headers: {
                 'Accept': API.format,
                 'apikey': API.key,
-                'Authorization': "Bearer " + $cookieStore.get('auth_token')
+                'Authorization': "Bearer " + $rootScope.auth_token
             },
             params: {
             }
@@ -185,7 +185,7 @@
             headers: {
                 'Accept': API.format,
                 'apikey': API.key,
-                'Authorization': "Bearer " + $cookieStore.get('auth_token')
+                'Authorization': "Bearer " + $rootScope.auth_token
             },
             params: {
             },

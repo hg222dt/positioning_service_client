@@ -3,9 +3,9 @@ angular
   .module('positioning_service_client_app')
   .controller("LoginController", LoginController);
 
-LoginController.$inject = ['UserService', '$scope', '$cookieStore', '$location'];
+LoginController.$inject = ['UserService', '$scope', '$cookieStore', '$location', '$rootScope'];
 
-function LoginController(UserService, $scope, $cookieStore, $location) {
+function LoginController(UserService, $scope, $cookieStore, $location, $rootScope) {
 
   var vm = this;
   
@@ -22,11 +22,18 @@ function LoginController(UserService, $scope, $cookieStore, $location) {
 
         console.log(data);
 
-        $cookieStore.put('auth_token', data['auth_token']);
-        $cookieStore.put('userLoggedIn', true);
 
-        $cookieStore.put('loggedInUsername', data['end_user']['username']);
-        $cookieStore.put('loggedInId', data['end_user']['id']);
+        $rootScope.auth_token = data['auth_token'];
+        $rootScope.userLoggedIn = true;
+        $rootScope.loggedInUsername = data['end_user']['username'];
+        $rootScope.loggedInId = data['end_user']['id'];
+
+
+
+        // $cookieStore.put('auth_token', data['auth_token']);
+        // $cookieStore.put('userLoggedIn', true);
+        // $cookieStore.put('loggedInUsername', data['end_user']['username']);
+        // $cookieStore.put('loggedInId', data['end_user']['id']);
 
         $location.path( "/doodles" );
 

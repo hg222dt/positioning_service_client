@@ -4,9 +4,9 @@ angular
   .module('positioning_service_client_app')
   .factory('DoodlesService', DoodlesService);
 
-  DoodlesService.$inject = ['ResourceService', '$q', '$cookieStore'];
+  DoodlesService.$inject = ['ResourceService', '$q', '$cookieStore', '$rootScope'];
 
-  function DoodlesService(Resource, $q, $cookieStore) {
+  function DoodlesService(Resource, $q, $cookieStore, $rootScope) {
 
     var Doodle = Resource('doodles');
 
@@ -123,7 +123,8 @@ angular
         if(!items) {
           
           // Doodle.getCollectionFromUser('users/username/' + $cookieStore.get('loggedInUsername') + '/doodles').then(function(data){
-          Doodle.getCollectionFromUser('user/' + $cookieStore.get('loggedInId') + '/doodles').then(function(data){
+          // Doodle.getCollectionFromUser('user/' + $cookieStore.get('loggedInId') + '/doodles').then(function(data){
+            Doodle.getCollectionFromUser('user/' + $rootScope.loggedInId + '/doodles').then(function(data){
 
             deferred.resolve(data);
           });
