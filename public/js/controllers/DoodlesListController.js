@@ -4,9 +4,9 @@
     .module('positioning_service_client_app') 
     .controller("DoodlesListController", DoodlesListController); 
 
-  DoodlesListController.$inject = ['DoodlesService', '$scope'];
+  DoodlesListController.$inject = ['DoodlesService', '$scope', '$rootScope'];
 
-  function DoodlesListController(DoodlesService, $scope) {
+  function DoodlesListController(DoodlesService, $scope, $rootScope) {
 
 
     
@@ -18,6 +18,8 @@
       .then(function(data){
         console.log(data);
         vm.doodlesList = data;
+        $rootScope.doodlesList = data;
+        $rootScope.addmultipleMarkers(data);
       })
       .catch(function(error) {
         console.log("ERROR");
