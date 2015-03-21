@@ -4,9 +4,9 @@
     .module('positioning_service_client_app') 
     .controller("ProfileController", ProfileController); 
 
-  ProfileController.$inject = ['DoodlesService', '$scope'];
+  ProfileController.$inject = ['DoodlesService', '$scope', '$rootScope'];
 
-  function ProfileController(DoodlesService, $scope) {
+  function ProfileController(DoodlesService, $scope, $rootScope) {
 
     var vm = this;
 
@@ -21,6 +21,7 @@
         });
 
         vm.doodlesList = data;
+        $rootScope.addmultipleMarkers(data);
       })
       .catch(function(error) {
         console.log("ERROR");

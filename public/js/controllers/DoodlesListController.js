@@ -52,6 +52,7 @@
           .then(function(data){
             console.log(data);
             vm.doodlesList = data;
+            $rootScope.addmultipleMarkers(data);
           })
           .catch(function(error) {
             console.log("ERROR");

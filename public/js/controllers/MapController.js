@@ -24,12 +24,24 @@
 
     $rootScope.addmultipleMarkers = function(doodleArray)  {
 
+        if($rootScope.markersArray != null) {
+
+          for(var i=0; i<$rootScope.markersArray.length; i++) {
+            $rootScope.markersArray[i].setMap(null);
+          }
+
+        }
+
+        $rootScope.markersArray = [];
+
         for(var i=0; i<doodleArray.length; i++) {
 
           var lat = doodleArray[i].location.lat;
           var lng = doodleArray[i].location.lng;
 
           var marker = new google.maps.Marker({position: {lat: lat, lng: lng}, map: map});
+
+          $rootScope.markersArray.push(marker);
 
         }
 
