@@ -38,13 +38,36 @@
             console.log(vm.doodlesList);
 
             vm.doodlesList.splice(index,1);
-
-
           })
           .catch(function(error) {
             console.log("ERROR");
           });
       }
 
+
+      $scope.update = function(doodle, index) {
+
+        var newDoodleText = prompt("Uppdatera doodlens text här.");
+
+        if(newDoodleText != "" || newDoodleText !== null) {
+          doodle.doodle_text = newDoodleText;
+        }
+
+
+
+
+        var doodlePromise = DoodlesService.updateDoodle(doodle);
+
+        doodlePromise
+          .then(function(data){
+
+
+            vm.doodlesList[index] = doodle;
+
+          })
+          .catch(function(error) {
+            console.log("ERROR");
+          });
+      }
   }
 })();

@@ -164,6 +164,17 @@ angular
         });
 
         return deferred.promise;
+      },
+      updateDoodle:function(doodle) {
+
+        var deferred = $q.defer();
+
+        var promise = Doodle.putDoodle('doodles/' + doodle.id, doodle).then(function(data) {
+          console.log(data);
+          deferred.resolve(data);
+        });
+
+        return deferred.promise;
       }
     };
   }

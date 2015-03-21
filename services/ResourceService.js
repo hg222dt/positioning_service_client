@@ -176,7 +176,36 @@
         });
 
       }
-      
+
+      Resource.putDoodle = function(collectionName, data) {
+
+        var req = {
+            method: 'PUT',
+            url: API.url + collectionName + ".json",
+            headers: {
+                'Accept': API.format,
+                'apikey': API.key,
+                'Authorization': "Bearer " + $cookieStore.get('auth_token')
+            },
+            params: {
+            },
+            data: {
+              'doodle_text': data.doodle_text
+            }
+        };
+
+        return $http(req).then(function(response) {
+          var result = [];
+
+          angular.forEach(response.data, function(value, key) {
+            result[key] = new Resource(value);
+          });
+
+          return response.data;
+        });
+
+      }
+
       return Resource;
     }
   }
