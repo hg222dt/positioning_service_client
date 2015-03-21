@@ -14,14 +14,20 @@ function CreateController(DoodlesService, $scope, $rootScope) {
   
   $scope.sendDoodle = function(doodle) {
 
-    doodle.lat = 1.1111;
-    doodle.long = 2.2222;
+    console.log("HEPP");
+    console.log($rootScope.currentPositionMarker);
+    console.log("HEPP");
+
+    doodle.lat = $rootScope.currentPositionMarker.position.k;
+    doodle.long = $rootScope.currentPositionMarker.position.D;
 
     var doodlePromise = DoodlesService.saveDoodle(doodle);
 
     doodlePromise
       .then(function(data){
         console.log(data);
+
+        $rootScope.currentPositionMarker.setMap(null);
 
       })
       .catch(function(error) {

@@ -13,13 +13,19 @@
     $scope.$on('mapInitialized', function(evt, evtMap) {
       map = evtMap;
 
+      
 
       vm.checkPosition = function(e) {
+
+        if($rootScope.currentPositionMarker != null) {
+          $rootScope.currentPositionMarker.setMap(null);
+        }
+
         console.log(e.latLng);
         var marker = new google.maps.Marker({position: e.latLng, map: map});
         // map.panTo(e.latLng);
+        $rootScope.currentPositionMarker = marker;
       };
-
     });
 
     $rootScope.addmultipleMarkers = function(doodleArray)  {
