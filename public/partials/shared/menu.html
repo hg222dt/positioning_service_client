@@ -1,0 +1,35 @@
+<!-- This menu is loading from a template with ng-include -->
+<!-- <ul>
+  <li><a data-ng-href=".">Home</a></li>
+  <li><a data-ng-href="players">All players</a></li>
+</ul> -->
+
+
+<!-- This menu is loading from a template with ng-include -->
+
+<div ng-hide="isUserLoggedIn()">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" data-ng-href=".#/">Doodles world</a>
+	      <a class="navbar-brand" data-ng-href="#/doodles">Alla doodlar</a>
+	      <a class="navbar-brand" data-ng-href="#/login">Logga in</a>
+	      <a class="navbar-brand" data-ng-href="#/registration">Registrera dig</a>
+	    </div>
+	  </div>
+	</nav>
+</div>
+
+<div ng-show="isUserLoggedIn()">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" data-ng-href=".#/">Doodles world</a>
+	      <a class="navbar-brand" data-ng-href="#/doodles">Alla doodlar</a>
+	      <a class="navbar-brand" data-ng-href="#/create">Skapa doodlar</a>
+	      <a class="navbar-brand" data-ng-href="#/profile">Profilsida</a>
+	      <a class="navbar-brand" data-ng-href=".#/" ng-click='logout()'>Logga ut</a>
+	    </div>
+	  </div>
+	</nav>
+</div>

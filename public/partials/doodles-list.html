@@ -1,0 +1,12 @@
+<h3>Listar alla doodlar</h3>
+
+<span>Filtrera ditt resultat. Skriv vad som helst!!</span>
+<input type="search" ng-model="search">
+
+<ul>
+  	<li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search" >
+	  <span>{{ _doodle.doodle_text }}</span>
+	  <span>{{_doodle.tag.name}}</span>
+	  <span>{{_doodle.end_user.username}}</span>
+	</li>
+</ul>

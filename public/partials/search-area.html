@@ -1,0 +1,17 @@
+<span>Search here</span>
+
+<!-- <div ng-controller="SearchFormController"> -->
+	<form novalidate>
+		<input type="text" ng-model="query.term">
+		<input type="submit" ng-click="send(query)" value="Sök" /> <br>
+		<input type="radio" ng-model="query.searchBy" value="tag">By tag
+		<input type="radio" ng-model="query.searchBy" value="username">By user
+		<input type="radio" ng-model="query.searchBy" value="all">All
+	</form>
+
+	<!-- <pre>form = {{query | json}}</pre> -->
+
+
+	<ng-include src="'/partials/doodles-list.html'"></ng-include>
+
+<!-- </div> -->
