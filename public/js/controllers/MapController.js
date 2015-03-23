@@ -51,9 +51,20 @@
 
         }
 
-      };
+      }
 
-    
-  }
+      $rootScope.removeAllMarkersFromMap = function() {
+
+        if($rootScope.markersArray != null) {
+          for(var i=0; i<$rootScope.markersArray.length; i++) {
+            $rootScope.markersArray[i].setMap(null);
+          }
+        }
+
+        if($rootScope.currentPositionMarker != null)
+          $rootScope.currentPositionMarker.setMap(null);
+        }
+
+      }    
   
 })();

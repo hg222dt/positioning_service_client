@@ -18,9 +18,6 @@
       $rootScope.auth_token = "";
       $rootScope.userLoggedIn = false;
 
-      // $cookieStore.put('auth_token', "");
-      // $cookieStore.put('userLoggedIn', false); 
-
     }
   }
 

@@ -206,6 +206,30 @@
 
       }
 
+      Resource.getByKeyword = function(collectionName, keyword) {
+        var req = {
+            method: 'GET',
+            url: API.url + collectionName + ".json",
+            headers: {
+                'Accept': API.format,
+                'apikey': API.key
+            },
+            params: {
+              q: keyword
+            }
+        };
+
+        return $http(req).then(function(response) {
+          var result = [];
+
+          angular.forEach(response.data, function(value, key) {
+            result[key] = new Resource(value);
+          });
+
+          return response.data;
+        });
+      }
+
       return Resource;
     }
   }

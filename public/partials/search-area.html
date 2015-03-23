@@ -1,13 +1,44 @@
-<span>Search here</span>
+
 
 <!-- <div ng-controller="SearchFormController"> -->
-	<form novalidate>
+<!-- 	<form novalidate>
 		<input type="text" ng-model="query.term">
 		<input type="submit" ng-click="send(query)" value="Sök" /> <br>
 		<input type="radio" ng-model="query.searchBy" value="tag">By tag
 		<input type="radio" ng-model="query.searchBy" value="username">By user
 		<input type="radio" ng-model="query.searchBy" value="all">All
 	</form>
+ -->
+<h3>Listar alla doodlar</h3>
+ 
+ <div id='search_box'>
+	<form novalidate>
+		<div class="container-fluid">
+		    <section class="container">
+				<div class="container-page">				
+					<div class="col-md-6">
+
+						<div class="input-group">
+					      <input type="text" class="form-control" placeholder="Sök här..." ng-model="query.term">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="button" ng-click="send(query)">Sök!</button>
+					      </span>
+					    </div>
+						<!-- 
+						<div class="form-group col-lg-12">
+							<label>Sök här!</label>
+							<input type="text" name="" class="form-control" id="" value="" ng-model="query.term">
+						</div> -->
+					</div>
+				</div>
+			</section>
+			<!-- <button type="submit" class="btn btn-primary" ng-click="send(query)" id="search_button">Kör!</button> -->
+		</div>
+	</form>
+</div>
+
+
+
 
 	<!-- <pre>form = {{query | json}}</pre> -->
 

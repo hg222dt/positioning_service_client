@@ -42,8 +42,6 @@
 
       $scope.send = function(query) {
 
-        console.log("HEPP");
-
         var filterDoodlesPromise = DoodlesService.getFilteredDoodles(query);
 
         $scope.master = angular.copy(query);
@@ -52,6 +50,7 @@
           .then(function(data){
             console.log(data);
             vm.doodlesList = data;
+            // console.log(data);
             $rootScope.addmultipleMarkers(data);
           })
           .catch(function(error) {
@@ -59,6 +58,31 @@
           });
 
       };
+
+      $scope.data = { };
+
+
+      $scope.changeHandler = function() {
+        
+        // console.log($scope.data.filteredItems);
+        // $rootScope.addmultipleMarkers($scope.data.filteredItems);
+
+      }
+
+      // console.log($scope.filteredItems);
+
+      // $scope.myFilter = function(item) {
+      //   console.log($scope.data.filteredItems);
+      //   // console.log("HEPP");
+
+      //   return true;
+      // }
+
+      // $scope.$watch(function(scope) { return scope.data.filteredItems },
+      //   function() {}
+      //  );
+
+
 
       // $scope.master = {firstName: "John", lastName: "Doe"};
   }

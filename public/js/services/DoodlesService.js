@@ -67,6 +67,20 @@ angular
             deferred.resolve(data);
           });
 
+        } else {
+
+          var Doodle = Resource('doodles');
+
+          var promise = Doodle.getByKeyword('doodles', query.term).then(function(data) {
+            // console.log(data);
+            deferred.resolve(data);
+          });
+
+          // var Doodle = Resource('users/username/' + query.term + '/doodles');
+
+          // Doodle.getCollection().then(function(data){
+          //   deferred.resolve(data);
+          // });
         }
 
         return deferred.promise;
@@ -113,6 +127,9 @@ angular
         });
 
         return deferred.promise;
+      },
+      getDoodlesByKeyword:function(keyword) {
+        
       },
       getDoodlesForUser:function(user) {
 

@@ -1,12 +1,42 @@
-<h3>Listar alla doodlar</h3>
+<div class='filter_boxes'>
+<form novalidate>
+		<div class="container-fluid">
+		    <section class="container">
+				<div class="container-page">				
+					<div class="col-md-6">					
+						<div class="form-group col-lg-6">
+							<label>Filtrera på användare</label>
+							<input type="search" name="" class="form-control" id="" value="" ng-model="search.end_user.username">
+						</div>
 
-<span>Filtrera ditt resultat. Skriv vad som helst!!</span>
-<input type="search" ng-model="search">
+						<div class="form-group col-lg-6">
+							<label>Filtrera på tagg</label>
+							<input type="search" name="" class="form-control" id="" value="" ng-model="search.tag.name">
+						</div>
+						<br>
+					</div>
+				</div>
+			</section>
+		</div>
+	</form>
+</div>
 
 <ul>
-  	<li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search" >
-	  <span>{{ _doodle.doodle_text }}</span>
-	  <span>{{_doodle.tag.name}}</span>
-	  <span>{{_doodle.end_user.username}}</span>
+  	<!-- <li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search | filter:myFilter" > -->
+  	<li ng-repeat="_doodle in (data.filteredItems = (doodlesCtrl.doodlesList | filter:search | filter:myFilter))">
+  	<div class='doodle_card'>
+	  	<div>
+	  		<span class='doodle_card_username'>{{_doodle.end_user.username}} sa:</span>
+		</div>
+		<div>
+		  <span class='doodle_card_text'>{{ _doodle.doodle_text }}</span>
+		</div>
+		<div>
+			<span class='doodle_card_tag_name'>Tagg: {{_doodle.tag.name}}</span>
+		</div>
+	</div>
 	</li>
 </ul>
+
+
+

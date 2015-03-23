@@ -5,6 +5,7 @@
      <base href="./">
      <title>AngularJS</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="./css/styles.css">
    </head>
    <body>
      
@@ -14,7 +15,7 @@
 
  
       <div ng-controller="MapController as mapctrl">
-        <map center="56.66830, 16.35315" zoom="8" class="map" on-click="mapctrl.checkPosition()"></map>
+        <map center="56.66830, 15.00000" zoom="5" class="map" on-click="mapctrl.checkPosition()"></map>
       </div>
  
       <!-- Includes a shared view (menu) -->
@@ -47,6 +48,7 @@
     <!-- Adding controllers -->
     <!-- <script src="./controllers/DoodlesController.js"></script> -->
     <!-- <script src="./controllers/LoginController.js"></script> -->
+
     <script src="./js/controllers/DoodlesListController.js"></script>
     <script src="./js/controllers/MapController.js"></script>
     <script src="./js/controllers/LoginController.js"></script>

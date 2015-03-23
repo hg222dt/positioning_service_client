@@ -1,0 +1,47 @@
+ul {
+  list-style-type: none;
+}
+
+.doodle_card {
+	border: 1px solid lightgray;
+	margin-top: 0.5em;
+	padding: 10px;
+	width: 300px;
+	min-height: 100px;
+	position: relative;
+	margin-left: 35%;
+	margin-top: 20px;
+}
+
+.doodle_card_username {
+	float:left;
+}
+
+.doodle_card_tag_name {
+	position:absolute;
+	bottom: 10px;
+	right: 10px;
+
+}
+
+.doodle_card_text {
+	position: absolute;
+	bottom: 40px;
+	left: 80px;
+}
+
+.filter_boxes {
+	margin-left: auto;
+	margin-right: auto;
+	width: 55%;
+}
+
+#search_box {
+	margin-left: auto;
+	margin-right: auto;
+	width: 55%;
+}
+
+#search_button {
+	
+}
