@@ -67,5 +67,10 @@
             console.log("ERROR");
           });
       }
+
+      $scope.cardClick = function(doodle) {
+        console.log("HEPP");
+        $rootScope.addmultipleMarkers([doodle]);
+      }
   }
 })();

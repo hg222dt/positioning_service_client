@@ -2,11 +2,21 @@
 
 
 <ul>
+  	<!-- <li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search | filter:myFilter" > -->
   	<li ng-repeat="_doodle in profileCtrl.doodlesList" >
-	  <span>{{ _doodle.doodle_text }}</span>
-	  <span>{{_doodle.tag.name}}</span>
-	  <span>{{_doodle.end_user.username}}</span>
-	  <a ng-click='delete(_doodle.id, _doodle.index)'>Radera</a>
-	  <a ng-click='update(_doodle, _doodle.index)'>Uppdatera</a>
+	  		<div class='doodle_card'>
+			  	<div>
+			  		<span class='doodle_card_username'>{{_doodle.end_user.username}} sa:</span>
+				</div>
+				<div>
+				  <span class='doodle_card_text'>"{{ _doodle.doodle_text }}"</span>
+				</div>
+				<div>
+					<span class='doodle_card_tag_name'>Tagg: {{_doodle.tag.name}}</span>
+				</div>
+				<a ng-click='delete(_doodle.id, _doodle.index)'><span class="glyphicon glyphicon-remove-circle remove_icon"></span></a>
+				<a ng-click='update(_doodle, _doodle.index)'><span class="glyphicon glyphicon-pencil remove_icon"></span></a>
+				<a ng-click='cardClick(_doodle)'><span class="glyphicon glyphicon-screenshot remove_icon"></span></a>
+			</div>
 	</li>
 </ul>

@@ -6,7 +6,7 @@
 
   MapController.$inject = ['$scope', '$rootScope'];
 
-  function MapController($scope, $rootScope){ 
+  function MapController($scope, $rootScope){
     var vm = this;
    
     var map;
@@ -31,9 +31,12 @@
     $rootScope.addmultipleMarkers = function(doodleArray)  {
 
         if($rootScope.markersArray != null) {
-
           for(var i=0; i<$rootScope.markersArray.length; i++) {
             $rootScope.markersArray[i].setMap(null);
+          }
+
+          if($rootScope.currentPositionMarker != null){
+            $rootScope.currentPositionMarker.setMap(null);
           }
 
         }
@@ -51,6 +54,14 @@
 
         }
 
+        if($rootScope.markersArray.length === 1) {
+          var lat = $rootScope.markersArray[0].position.k;
+          var lng = $rootScope.markersArray[0].position.D;
+
+          var myLatlng = new google.maps.LatLng(lat, lng);
+          map.panTo(myLatlng);
+        }
+
       }
 
       $rootScope.removeAllMarkersFromMap = function() {
@@ -61,10 +72,9 @@
           }
         }
 
-        if($rootScope.currentPositionMarker != null)
+        if($rootScope.currentPositionMarker != null) {
           $rootScope.currentPositionMarker.setMap(null);
         }
-
       }    
-  
+  }
 })();
