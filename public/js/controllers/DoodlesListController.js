@@ -69,6 +69,11 @@
 
       }
 
+      $scope.cardClick = function(doodle) {
+        $rootScope.addmultipleMarkers([doodle]);
+      }
+
+
       // console.log($scope.filteredItems);
 
       // $scope.myFilter = function(item) {
