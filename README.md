@@ -2,7 +2,7 @@
 
 ##Instructions
 
-1. Install the rails server by following the instructions under "REST-API" in this repo: https://github.com/hg222dt/positioning_service
+1. Install the rails server (the latest release!) by following the instructions under "REST-API" in this repo: https://github.com/hg222dt/positioning_service
 
 2. When you completed the rails server install, retrieve a client api key from the registration application, by following the instruction number 3 at the last installed repos instructions.
 
