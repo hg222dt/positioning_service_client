@@ -21,23 +21,27 @@
 	</form>
 </div>
 
-<ul>
-  	<!-- <li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search | filter:myFilter" > -->
-  	<li ng-repeat="_doodle in (data.filteredItems = (doodlesCtrl.doodlesList | filter:search | filter:myFilter))">
-  		<div class='doodle_card'>
-		  	<div>
-		  		<span class='doodle_card_username'>{{_doodle.end_user.username}} sa:</span>
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
+	<ul>
+	  	<!-- <li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search | filter:myFilter" > -->
+	  	<li ng-repeat="_doodle in (data.filteredItems = (doodlesCtrl.doodlesList | filter:search | filter:myFilter))">
+	  		<div class='doodle_card'>
+			  	<div>
+			  		<span class='doodle_card_username'>{{_doodle.end_user.username}} sa:</span>
+				</div>
+				<div>
+				  <span class='doodle_card_text'>"{{ _doodle.doodle_text }}"</span>
+				</div>
+				<a ng-click='cardClick(_doodle)'><span class="glyphicon glyphicon-screenshot remove_icon"></span></a>
+				<div>
+					<span class='doodle_card_tag_name'>Tagg: {{_doodle.tag.name}}</span>
+				</div>
 			</div>
-			<div>
-			  <span class='doodle_card_text'>"{{ _doodle.doodle_text }}"</span>
-			</div>
-			<a ng-click='cardClick(_doodle)'><span class="glyphicon glyphicon-screenshot remove_icon"></span></a>
-			<div>
-				<span class='doodle_card_tag_name'>Tagg: {{_doodle.tag.name}}</span>
-			</div>
-		</div>
-	</li>
-</ul>
+		</li>
+	</ul>
+<div>
+<div class="col-lg-4"></div>
 
 
 

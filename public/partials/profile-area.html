@@ -1,22 +1,24 @@
 <h3>Din profil</h3>
-
-
-<ul>
-  	<!-- <li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search | filter:myFilter" > -->
-  	<li ng-repeat="_doodle in profileCtrl.doodlesList" >
-	  		<div class='doodle_card'>
-			  	<div>
-			  		<span class='doodle_card_username'>{{_doodle.end_user.username}} sa:</span>
+<div class="form-group col-lg-4"></div>
+<div class="form-group col-lg-4">
+	<ul class='cards-list'>
+	  	<!-- <li ng-repeat="_doodle in doodlesCtrl.doodlesList | filter:search | filter:myFilter" > -->
+	  	<li ng-repeat="_doodle in profileCtrl.doodlesList" >
+		  		<div class='doodle_card'>
+				  	<div>
+				  		<span class='doodle_card_username'>{{_doodle.end_user.username}} sa:</span>
+					</div>
+					<div>
+					  <span class='doodle_card_text'>"{{ _doodle.doodle_text }}"</span>
+					</div>
+					<div>
+						<span class='doodle_card_tag_name'>Tagg: {{_doodle.tag.name}}</span>
+					</div>
+					<a ng-click='delete(_doodle.id, _doodle.index)'><span class="glyphicon glyphicon-remove-circle remove_icon"></span></a>
+					<a ng-click='update(_doodle, _doodle.index)'><span class="glyphicon glyphicon-pencil remove_icon"></span></a>
+					<a ng-click='cardClick(_doodle)'><span class="glyphicon glyphicon-screenshot remove_icon"></span></a>
 				</div>
-				<div>
-				  <span class='doodle_card_text'>"{{ _doodle.doodle_text }}"</span>
-				</div>
-				<div>
-					<span class='doodle_card_tag_name'>Tagg: {{_doodle.tag.name}}</span>
-				</div>
-				<a ng-click='delete(_doodle.id, _doodle.index)'><span class="glyphicon glyphicon-remove-circle remove_icon"></span></a>
-				<a ng-click='update(_doodle, _doodle.index)'><span class="glyphicon glyphicon-pencil remove_icon"></span></a>
-				<a ng-click='cardClick(_doodle)'><span class="glyphicon glyphicon-screenshot remove_icon"></span></a>
-			</div>
-	</li>
-</ul>
+		</li>
+	</ul>
+</div>
+<div class="form-group col-lg-4"></div>

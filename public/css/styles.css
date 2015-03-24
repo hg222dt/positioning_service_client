@@ -9,7 +9,7 @@ ul {
 	width: 300px;
 	min-height: 100px;
 	position: relative;
-	margin-left: 35%;
+	/*margin-left: 35%;*/
 	margin-top: 20px;
 
 	-webkit-box-shadow: 0 5px 10px -6px #777;
