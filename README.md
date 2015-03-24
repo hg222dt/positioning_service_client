@@ -2,11 +2,20 @@
 
 ##Instructions
 
-1. Install the rails server by following the instructions in this repo: https://github.com/hg222dt/positioning_service
+1. Install the rails server by following the instructions under "REST-API" in this repo: https://github.com/hg222dt/positioning_service
 
-2. Clone this repo to your local environment.
+2. When you completed the rails server install, retrieve a client api key, by following the instruciton under "Registreringsapplikation" in the same repo. 
 
-3. Run npm install inside the project root folder.
+3. Retrieve your client specific api-key and add it to this file in this repo: /positioning_service_client/public/js/config.js. Add the key to the "key" value.
+
+3. Clone this repo to your local environment.
+
+4. Run npm install inside the project root folder.
+
+4. You can now run the app by from the project root folder entering the command node app.js.
+
+
+5. When you run the apps locally, remember to run the rails-server on port 3000 and the client-server on port 4000.
 
 ##Functionality
 
