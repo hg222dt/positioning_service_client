@@ -14,8 +14,10 @@
 
 4. You can now run the app by from the project root folder entering the command node app.js.
 
-
 5. When you run the apps locally, remember to run the rails-server on port 3000 and the client-server on port 4000.
+
+6. There should now be a created user for you in the client app with username: "user1@user.se", and password: "hejhej". There will also be two pre-created Doodles, one in Paris and one in Berlin.
+
 
 ##Functionality
 
