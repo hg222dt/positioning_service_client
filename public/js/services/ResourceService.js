@@ -111,7 +111,7 @@
             data : data
         };
 
-        return $http(req).then(function(response) {
+        return $http(req).success(function(response) {
           var result = [];
 
           angular.forEach(response.data, function(value, key) {

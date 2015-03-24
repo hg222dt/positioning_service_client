@@ -27,10 +27,29 @@ angular
 
         var jsonData = JSON.stringify(data);
     
-        promise = User.postUser('api_auth', jsonData).then(function(data) {
-          response = data;
+        promise = User.postUser('api_auth', jsonData);
+
+
+        // .then(function(data) {
+        //   response = data;
+        //   deferred.resolve(data);
+        // });
+
+
+
+
+        promise.success(function(data){
+
+          // resolve the data to the caller
           deferred.resolve(data);
+
+        }).catch(function(data){
+          // If something went wrong we have to reject the promise (the caller will catch an error)
+          deferred.reject(data);
         });
+
+
+
 
         return deferred.promise;
 
@@ -48,11 +67,27 @@ angular
         data['end_user']['bio_text'] = "";
 
         var jsonData = JSON.stringify(data);
+
+        var deferred = $q.defer();
     
-        var promise = User.postUser('user', jsonData).then(function(data) {
-          console.log(data);
+        var promise = User.postUser('user', jsonData);
+
+        // .then(function(data) {
+        //   console.log(data);
+        // });
+
+        promise.success(function(data){
+
+          // resolve the data to the caller
+          deferred.resolve(data);
+
+        }).catch(function(data){
+          // If something went wrong we have to reject the promise (the caller will catch an error)
+          deferred.reject(data);
         });
-        return promise;
+
+        return deferred.promise;
+        // return promise;
         
       }
     }

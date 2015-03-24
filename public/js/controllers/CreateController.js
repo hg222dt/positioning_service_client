@@ -18,6 +18,8 @@ function CreateController(DoodlesService, $scope, $rootScope) {
 
     if($rootScope.currentPositionMarker === undefined) {
       alert("Du måste välja en position på din doodle. Klicka på kartan var du vill placera den.");
+    } else if(doodle == null || doodle.text == "" || doodle.text == null) {
+      alert("Du msåte fylla i en doodle-text!");
     } else {
 
       doodle.lat = $rootScope.currentPositionMarker.position.k;
