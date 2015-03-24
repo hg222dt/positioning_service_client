@@ -74,11 +74,6 @@
     .constant('LocalStorageConstants', {
       'doodlesKey' : 'd'
     })
-    .constant('API', {
-        'key': "b73c7bd31eda0f56af490a146fd589d4",
-        'url': "http://localhost:3000/api/v1/",
-        'format': 'application/json'
-    })
     .controller('MainCtrl', function($scope) {
       console.log("HEPP");
     });
