@@ -9,6 +9,19 @@
 3. Run npm install inside the project root folder.
 
 
+Functionality
+
+1. Show all registered Doodles. User can click on Doodle card and the specific marker position will appear on map.
+2. Search for doodles containing search term.
+3. Filter doodle result in terms of username ang tagg.
+4. Create an account.
+5. Log in to account.
+6. Create a Doodle. (For logged in users)
+7. Update own Doodle. (For logged in users)
+8. Delete own Doodle. (For logged in users)
+9. A profile overview of users own Doodles. (For logged in users) User can click on Doodle card and the specific marker position will appear on map.
+
+
 
 
 
