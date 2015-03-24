@@ -27,7 +27,7 @@
 (function() {
 
   angular
-    .module('positioning_service_client_app', ['ngRoute', 'LocalStorageModule', 'ngMap', 'ngCookies'])
+    .module('positioning_service_client_app', ['ngRoute', 'LocalStorageModule', 'ngMap', 'ngCookies', 'ngFooter'])
     .config(['$routeProvider', '$locationProvider',
       function($routeProvider, $locationProvider) {
         $routeProvider.

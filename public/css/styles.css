@@ -66,3 +66,14 @@ ul {
 .remove_icon {
 	float:right;
 }
+
+.footer p {
+	text-align: center;
+	padding: 40px;
+}
+
+.footer {
+	margin-top: 40px;
+	background-color: lightgray;
+	/*height: 30px;*/
+}

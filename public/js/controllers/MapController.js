@@ -23,7 +23,6 @@
 
         console.log(e.latLng);
         var marker = new google.maps.Marker({position: e.latLng, map: map});
-        // map.panTo(e.latLng);
         $rootScope.currentPositionMarker = marker;
       };
     });

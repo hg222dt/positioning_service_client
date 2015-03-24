@@ -33,13 +33,10 @@ function LoginController(UserService, $scope, $cookieStore, $location, $rootScop
 
           console.log(data);
 
-
           $rootScope.auth_token = data['auth_token'];
           $rootScope.userLoggedIn = true;
           $rootScope.loggedInUsername = data['end_user']['username'];
           $rootScope.loggedInId = data['end_user']['id'];
-
-
 
           // $cookieStore.put('auth_token', data['auth_token']);
           // $cookieStore.put('userLoggedIn', true);
